@@ -5,8 +5,11 @@ import App from "./App";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 root.render(
   <BrowserRouter>
     <App />
   </BrowserRouter>
 );
+
+export { BASE_URL };

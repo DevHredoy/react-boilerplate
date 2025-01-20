@@ -1,27 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import users from "./loginCreds";
 
 const LoginPage = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const navigate = useNavigate();
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    const isUserValid = Object.values(users).some(
-      (user) => user.userName === username && user.password === password
-    );
-
-    if (isUserValid) {
-      console.log("user valid ?", isUserValid);
-      navigate("/success");
-    } else {
-      setErrorMessage("invalid username or password");
-    }
-  };
+//   const navigate = useNavigate();
 
   return (
     <div>
@@ -48,9 +29,9 @@ const LoginPage = () => {
           <h2
             style={{ textAlign: "center", marginBottom: "20px", color: "#333" }}
           >
-            Welcome to the Home Page
+            Login to System
           </h2>
-          <form onSubmit={handleLogin}>
+          <form onSubmit={""}>
             <div style={{ marginBottom: "15px" }}>
               <label
                 htmlFor="username"
@@ -67,7 +48,7 @@ const LoginPage = () => {
                 type="text"
                 id="username"
                 placeholder="Enter your username"
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={"(e) => setUsername(e.target.value)"}
                 style={{
                   width: "100%",
                   padding: "10px",
@@ -93,7 +74,7 @@ const LoginPage = () => {
                 type="password"
                 id="password"
                 placeholder="Enter your password"
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={""}
                 style={{
                   width: "100%",
                   padding: "10px",
@@ -103,13 +84,13 @@ const LoginPage = () => {
                 required
               />
             </div>
-            {errorMessage && (
+            {/* {errorMessage && (
               <p
                 style={{ color: "red", textAlign: "center", marginTop: "10px" }}
               >
                 {errorMessage}
               </p>
-            )}
+            )} */}
             <button
               type="submit"
               style={{
