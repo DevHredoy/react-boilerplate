@@ -14,8 +14,9 @@ const RegistrationPage = () => {
 
     try {
       const response = await apiService.create(url, data);
-      setResponseMessage(`Success: ${response.data.message}`);
+      setResponseMessage("`Success: ${response.data.message}`");
       navigate("/success");
+      setResponseMessage("successfully created a new user");
     } catch (error) {
       console.error("Error during API call:", error);
       setResponseMessage(

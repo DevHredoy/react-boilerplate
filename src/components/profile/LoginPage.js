@@ -1,12 +1,40 @@
 import React from "react";
+
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import apiService from "../../apiService/apiService";
 
 const LoginPage = () => {
-//   const navigate = useNavigate();
+  //   const navigate = useNavigate();
+  const [userName, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [responseMessage, setResponseMessage] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async () => {
+    const url = "/login";
+    const data = { userName, password };
+
+    try {
+      const response = await apiService.login(url, data);
+      setResponseMessage("`Success: ${response.data.message}`");
+      navigate("/success");
+      console.log("response:", response);
+    } catch (error) {
+      console.error("Error during API call:", error);
+      setResponseMessage(
+        `Error: ${error.response?.data?.message || "Something went wrong"}`
+      );
+    }
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    handleSubmit();
+  };
 
   return (
     <div>
-      {" "}
       <div
         style={{
           display: "flex",
@@ -31,7 +59,7 @@ const LoginPage = () => {
           >
             Login to System
           </h2>
-          <form onSubmit={""}>
+          <form onSubmit={handleLogin}>
             <div style={{ marginBottom: "15px" }}>
               <label
                 htmlFor="username"
@@ -46,9 +74,9 @@ const LoginPage = () => {
               </label>
               <input
                 type="text"
-                id="username"
+                id="userName"
                 placeholder="Enter your username"
-                onChange={"(e) => setUsername(e.target.value)"}
+                onChange={(e) => setUsername(e.target.value)}
                 style={{
                   width: "100%",
                   padding: "10px",
@@ -74,7 +102,7 @@ const LoginPage = () => {
                 type="password"
                 id="password"
                 placeholder="Enter your password"
-                onChange={""}
+                onChange={(e) => setPassword(e.target.value)}
                 style={{
                   width: "100%",
                   padding: "10px",
@@ -84,13 +112,19 @@ const LoginPage = () => {
                 required
               />
             </div>
-            {/* {errorMessage && (
+            {responseMessage && (
               <p
-                style={{ color: "red", textAlign: "center", marginTop: "10px" }}
+                style={{
+                  color: responseMessage.startsWith("Success")
+                    ? "green"
+                    : "red",
+                  textAlign: "center",
+                  marginTop: "10px",
+                }}
               >
-                {errorMessage}
+                {responseMessage}
               </p>
-            )} */}
+            )}
             <button
               type="submit"
               style={{
