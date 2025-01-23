@@ -1,0 +1,7 @@
+{
+  "students": [
+    { "id": 1, "name": "John Doe", "mark": 95 },
+    { "id": 2, "name": "Jane Smith", "mark": 88 }
+  ],
+  "users": [{ "userName": "rakib", "password": "3344" }]
+}
