@@ -8,27 +8,28 @@ const apiClient = axios.create({
   },
 });
 
-
-
 const apiService = {
+  // for login api
 
-// for login api
-
-
-login: (url, data) => {
-  console.log("base:", BASE_URL);
-  return apiClient.post(BASE_URL + url, data);
-},
-
-  create: (url, data) => {
+  login: (url, data) => {
     console.log("base:", BASE_URL);
-    return apiClient.post(BASE_URL + url, data);
+    return apiClient.get(BASE_URL + url, {
+      params: {
+        userName: data.userName,
+        password: data.password,
+      },
+    });
   },
 
-  getAll:(url)=>{
-    return apiClient.getAll(BASE_URL+url)
-  }
+  //   create: (url, data) => {
+  //     console.log("base:", BASE_URL);
+  //     return apiClient.post(BASE_URL + url, data);
+  //   },
 
+  //   getAll:(url)=>{
+  //     return apiClient.getAll(BASE_URL+url)
+  //   }
+  // }
 };
 
 export default apiService;

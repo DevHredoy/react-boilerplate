@@ -12,7 +12,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
-    const url = "/login";
+    const url = "/users"
     const data = { userName, password };
 
     try {
