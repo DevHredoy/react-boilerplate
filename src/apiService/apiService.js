@@ -12,15 +12,8 @@ const apiService = {
   // for login api
 
   login: (url, data) => {
-    console.log("base:", BASE_URL);
-    return apiClient.get(BASE_URL + url, {
-      params: {
-        userName: data.userName,
-        password: data.password,
-      },
-    });
+    return apiClient.post(BASE_URL + url, data);
   },
-
   //   create: (url, data) => {
   //     console.log("base:", BASE_URL);
   //     return apiClient.post(BASE_URL + url, data);

@@ -17,9 +17,15 @@ const LoginPage = () => {
 
     try {
       const response = await apiService.login(url, data);
-      setResponseMessage("`Success: ${response.data.message}`");
+      const users=response.data;
+      const user = users.find(
+        (user) => user.userName === userName && user.password === password
+      );
+      if(user){
+        setResponseMessage("`Success: ${response.data.message}`");
       navigate("/success");
       console.log("response:", response);
+      }
     } catch (error) {
       console.error("Error during API call:", error);
       setResponseMessage(
