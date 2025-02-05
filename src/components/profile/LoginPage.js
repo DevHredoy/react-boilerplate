@@ -6,20 +6,24 @@ import apiService from "../../apiService/apiService";
 
 const LoginPage = () => {
   //   const navigate = useNavigate();
-  const [userName, setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
-    const url = "/login";
-    const data = { userName, password };
+    const url = "/api/v1/auth/login";
+    const data = { username, password };
 
     try {
       const response = await apiService.login(url, data);
       setResponseMessage("`Success: ${response.data.message}`");
       navigate("/success");
       console.log("response:", response);
+      console.log("token:", response.data.token);
+      localStorage.setItem("tokken",response.data.token)
+      
+      
     } catch (error) {
       console.error("Error during API call:", error);
       setResponseMessage(
