@@ -5,13 +5,13 @@ const Sidebar = () => {
   return (
     <div
       style={{
-        width: "250px", // Fixed width for the sidebar
-        height: "100vh", // Full height of the viewport
-        backgroundColor: "#d3d3d3", // Light grey background
+        width: "250px", 
+        height: "100vh", 
+        backgroundColor: "#d3d3d3", 
         display: "flex",
-        flexDirection: "column", // Stack items vertically
-        padding: "10px", // Inner padding for the sidebar
-        boxShadow: "2px 0 5px rgba(0, 0, 0, 0.1)", // Subtle shadow for a clean effect
+        flexDirection: "column", 
+        padding: "10px", 
+        boxShadow: "2px 0 5px rgba(0, 0, 0, 0.1)", 
       }}
     >
       <button

@@ -29,10 +29,8 @@ const HomePage = () => {
           backgroundColor: "grey",
         }}
       >
-        {/* Centered H1 */}
         <h1 style={{ margin: 0 }}>React Boilerplate</h1>
 
-        {/* Right-aligned button */}
         <button
           onClick={handleLogout}
           style={{
