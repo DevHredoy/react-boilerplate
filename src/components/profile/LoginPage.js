@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import apiService from "../../apiService/apiService";
 
 const LoginPage = () => {
-  //   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
@@ -21,9 +20,7 @@ const LoginPage = () => {
       navigate("/success");
       console.log("response:", response);
       console.log("token:", response.data.token);
-      localStorage.setItem("tokken",response.data.token)
-      
-      
+      localStorage.setItem("tokken", response.data.token);
     } catch (error) {
       console.error("Error during API call:", error);
       setResponseMessage(
@@ -63,6 +60,7 @@ const LoginPage = () => {
           >
             Login to System
           </h2>
+          <button>add new student</button>
           <form onSubmit={handleLogin}>
             <div style={{ marginBottom: "15px" }}>
               <label

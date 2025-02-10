@@ -3,33 +3,35 @@ import { BASE_URL } from "../index";
 
 // Create an instance of Axios for API requests
 const apiClient = axios.create({
+  baseURL: BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },
 });
 
-
+apiClient.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem("tokken");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
 const apiService = {
-
-// for login api
-
-
-
-login: (url, data) => {
-  console.log("base:", BASE_URL);
-  return apiClient.post(BASE_URL + url, data);
-},
-
-  create: (url, data) => {
-    console.log("base:", BASE_URL);
-    return apiClient.post(BASE_URL + url, data);
+  login: (url, data) => {
+    return apiClient.post(url, data);
   },
 
-  getAll:(url)=>{
-    return apiClient.getAll(BASE_URL+url)
-  }
+  create: (url, data) => {
+    return apiClient.post(url, data);
+  },
 
+  getAll: (url) => {
+    return apiClient.get(url);
+  },
 };
 
 export default apiService;
