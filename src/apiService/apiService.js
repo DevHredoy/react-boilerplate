@@ -1,7 +1,7 @@
 import axios from "axios";
-import { BASE_URL } from "../index";
 
-// Create an instance of Axios for API requests
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
 const apiClient = axios.create({
   baseURL: BASE_URL,
   headers: {
@@ -34,4 +34,7 @@ const apiService = {
   },
 };
 
+
+
+export { BASE_URL };
 export default apiService;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import apiService from "../../apiService/apiService";
+import PageWrapper from "../PageWrapper";
 
 const Students = () => {
   const [students, setStudents] = useState([]);
@@ -7,15 +8,12 @@ const Students = () => {
   const [error, setError] = useState("");
 
   const ll = localStorage.getItem("tokken");
-  console.log("ll:",ll)
-
+  console.log("ll:", ll);
 
   useEffect(() => {
     const url = "/api/v1/employee/list";
     const fetchAllItems = async () => {
       try {
-        console.log("hello");
-        console.log("url:", url);
         const response = await apiService.getAll(url);
         console.log("response to get all employees:", response.data);
         setStudents(response.data);
@@ -35,9 +33,10 @@ const Students = () => {
 
   return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-      <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
+      {/* <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
         Student List
-      </h2>
+      </h2> */}
+      <PageWrapper title={"Students"} isAddButton={true} />
       <table
         style={{
           width: "100%",

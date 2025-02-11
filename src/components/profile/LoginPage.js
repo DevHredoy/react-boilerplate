@@ -2,7 +2,7 @@ import React from "react";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import apiService from "../../apiService/apiService";
+import apiService, { BASE_URL } from "../../apiService/apiService";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -13,6 +13,8 @@ const LoginPage = () => {
   const handleSubmit = async () => {
     const url = "/api/v1/auth/login";
     const data = { username, password };
+
+    console.log("base:", BASE_URL);
 
     try {
       const response = await apiService.login(url, data);
