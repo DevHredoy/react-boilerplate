@@ -36,7 +36,11 @@ const Students = () => {
       {/* <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
         Student List
       </h2> */}
-      <PageWrapper title={"Students"} isAddButton={true} />
+      <PageWrapper
+        title={"Students"}
+        isAddButton={true}
+        route={"studentForm"}
+      />
       <table
         style={{
           width: "100%",
@@ -48,7 +52,7 @@ const Students = () => {
           <tr style={{ backgroundColor: "#f2f2f2" }}>
             <th style={tableHeaderCellStyle}>ID</th>
             <th style={tableHeaderCellStyle}>Name</th>
-            <th style={tableHeaderCellStyle}>Mark</th>
+            <th style={tableHeaderCellStyle}>Phone Number</th>
           </tr>
         </thead>
         <tbody>
@@ -56,7 +60,7 @@ const Students = () => {
             <tr key={student.id} style={tableRowStyle}>
               <td style={tableCellStyle}>{student.id}</td>
               <td style={tableCellStyle}>{student.name}</td>
-              <td style={tableCellStyle}>{student.mark}</td>
+              <td style={tableCellStyle}>{student.phoneNumber}</td>
             </tr>
           ))}
         </tbody>

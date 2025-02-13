@@ -1,13 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-const PageWrapper = ({ title, isAddButton, route }) => {
-  const navigate = useNavigate();
 
-  const handleNavigation = () => {
-    const formattedRoute = `/${route}`;
-    navigate(formattedRoute); //how to use route here
-  };
-
+const FormPageWrapper = ({ title }) => {
   return (
     <div>
       <div
@@ -22,8 +15,7 @@ const PageWrapper = ({ title, isAddButton, route }) => {
           boxShadow: "2px 0 5px rgba(0, 0, 0, 0.1)",
           marginBottom: "12px",
           borderRadius: "5px",
-          marginLeft:"5px"
-
+          marginLeft: "5px",
         }}
       >
         <div
@@ -38,21 +30,9 @@ const PageWrapper = ({ title, isAddButton, route }) => {
         >
           {title}
         </div>
-        {isAddButton && (
-          <button
-            onClick={handleNavigation}
-            style={{
-              backgroundColor: "lightblue",
-              cursor: "pointer",
-              borderRadius: "5px",
-            }}
-          >
-            add new{" "}
-          </button>
-        )}
       </div>
     </div>
   );
 };
 
-export default PageWrapper;
+export default FormPageWrapper;

@@ -46,6 +46,23 @@ const Sidebar = () => {
       >
         Buildings
       </button>
+
+      <button
+        style={{
+          width: "100%",
+          padding: "15px",
+          marginBottom: "10px",
+          backgroundColor: "#f0f0f0",
+          border: "1px solid #ccc",
+          borderRadius: "5px",
+          textAlign: "left",
+          fontWeight: "bold",
+          cursor: "pointer",
+        }}
+        onClick={() => navigate("/teachers")}
+      >
+        Teachers
+      </button>
     </div>
   );
 };
