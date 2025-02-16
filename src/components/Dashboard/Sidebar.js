@@ -6,11 +6,12 @@ const Sidebar = () => {
     <div
       style={{
         width: "250px",
-        height: "100vh",
+        height: "56vh",
         backgroundColor: "#d3d3d3",
         display: "flex",
         flexDirection: "column",
         padding: "10px",
+        
         boxShadow: "2px 0 5px rgba(0, 0, 0, 0.1)",
       }}
     >

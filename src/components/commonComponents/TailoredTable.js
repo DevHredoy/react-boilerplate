@@ -25,7 +25,9 @@ const TailoredTable = ({ url, columns }) => {
   if (error) return <p style={{ color: "red" }}>{error}</p>;
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+    <div
+      style={tableContainerStyle}
+    >
       <table
         style={{
           width: "100%",
@@ -57,6 +59,16 @@ const TailoredTable = ({ url, columns }) => {
     </div>
   );
 };
+
+
+const tableContainerStyle = {
+    padding: "20px",
+    fontFamily: "Arial, sans-serif",
+    borderRadius: "10px", // Softens the outer edges
+    overflow: "hidden",
+    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Adds a slight shadow
+    backgroundColor: "#fff",
+  };
 
 // Inline styles for table
 const tableHeaderCellStyle = {

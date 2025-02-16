@@ -52,7 +52,7 @@ const Building = () => {
           <tr style={{ backgroundColor: "#f2f2f2" }}>
             <th style={tableHeaderCellStyle}>ID</th>
             <th style={tableHeaderCellStyle}>Name</th>
-            <th style={tableHeaderCellStyle}>Phone Number</th>
+            <th style={tableHeaderCellStyle}>Address</th>
           </tr>
         </thead>
         <tbody>

@@ -12,8 +12,7 @@ const Layout = () => {
   };
 
   return (
-    <div style={{ display: "flex" }}>
-      <Sidebar />
+    <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
       <div style={{ flex: 1 }}>
         <div
           className="header"
@@ -23,7 +22,7 @@ const Layout = () => {
             // alignItems: "right",
             padding: "10px",
             backgroundColor: "grey",
-            marginBottom: "20px",
+            
           }}
         >
           {/* <h1 style={{ margin: 0 }}>React Boilerplate</h1> */}
@@ -38,6 +37,8 @@ const Layout = () => {
             <LogOut size={24} />
           </button>
         </div>
+       <div style={{display:"flex"}}>
+       <Sidebar />
         {/* <div
           style={{
             padding: "10px",
@@ -51,6 +52,7 @@ const Layout = () => {
         </div> */}
         {/* Render the content of child routes */}
         <Outlet />
+       </div>
       </div>
     </div>
   );
