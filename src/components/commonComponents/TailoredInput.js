@@ -1,8 +1,13 @@
 import React from 'react'
+import { Form } from 'antd'
 
-const TailoredInput = ({label}) => {
+
+
+const TailoredInput = () => {
   return (
-    <div>TailoredInput</div>
+    <div>
+     
+    </div>
   )
 }
 
