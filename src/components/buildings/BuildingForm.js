@@ -1,6 +1,7 @@
-import { Button, Col, Form, Input, message, Row } from "antd";
+import { Button, Col, Form, message, Row } from "antd";
 import React from "react";
 import FormPageWrapper from "../FormPageWrapper";
+import TailoredInput from "../commonComponents/TailoredInput";
 
 const { Item } = Form;
 
@@ -24,10 +25,10 @@ const BuildingForm = () => {
           width: "80vw",
           marginRight: "5px",
           padding: "20px",
-           border: "1px solid chocolate",
+          border: "1px solid lightblue",
           borderRadius: "8px",
           backgroundColor: "#f9f9f9",
-          marginLeft:"5px"
+          marginLeft: "5px",
         }}
       >
         <Form
@@ -39,40 +40,15 @@ const BuildingForm = () => {
           {/* Single Row for All Fields */}
           <Row gutter={16}>
             <Col span={8}>
-              <Item
-                name="name"
-                label="Name"
-                rules={[{ required: true, message: "Please input your name!" }]}
-              >
-                <Input placeholder="Enter your name" />
-              </Item>
+              <TailoredInput label="Name" name="name" />
             </Col>
 
             <Col span={8}>
-              <Item
-                name="phone"
-                label="Phone Number"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your phone number!",
-                  },
-                ]}
-              >
-                <Input placeholder="Enter your phone number" />
-              </Item>
+              <TailoredInput label="Phone Number" name="phoneNumber" />
             </Col>
 
             <Col span={8}>
-              <Item
-                name="email"
-                label="Email"
-                rules={[
-                  { required: true, message: "Please input your email!" },
-                ]}
-              >
-                <Input placeholder="Enter your email" />
-              </Item>
+              <TailoredInput label="Email" name="email" />
             </Col>
           </Row>
 

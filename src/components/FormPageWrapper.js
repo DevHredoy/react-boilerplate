@@ -7,7 +7,7 @@ const FormPageWrapper = ({ title }) => {
         style={{
           width: "81vw",
           height: "4vh",
-          backgroundColor: "floralwhite",
+          backgroundColor: "lightgray",
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
